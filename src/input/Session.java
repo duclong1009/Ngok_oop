@@ -8,7 +8,7 @@ public class Session {//Phien giao dich
 	private String day;//Ngay giao dich
 	private float change;//Bien dong so voi ngay hom truoc
 	private float state;//Trang thai so voi hom truoc do(tang giam,....)
-	private float price;//Gia
+	private String price;//Gia
 	private String matchingTradeWeight;//Khoi luong giao dich khop lenh
 	private String matchingTradeValue;//Gia tri giao dich khop lenh
 	private String transactionWeight;//Khoi luong giao dich thoa thuan
@@ -39,10 +39,10 @@ public class Session {//Phien giao dich
 	public void setState(float state) {
 		this.state = state;
 	}
-	public void setPrice(float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-	public float getPrice() {
+	public String getPrice() {
 		return price;
 	}
 	public String getMatchingTradeWeight() {

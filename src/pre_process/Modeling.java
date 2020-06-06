@@ -3,10 +3,10 @@ package pre_process;
 
 public interface Modeling extends Convention{
 	
-	public abstract String modelName(String st);
-	public abstract String modelDate(String st);
-	public abstract String modelPrice(String st);
-	public String model(String st);
+	String modelName(String st);
+	String modelDate(String st);
+	String modelPrice(String st);
+	String model(String st);
 //	public void add();
 	
 }

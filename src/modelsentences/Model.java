@@ -14,37 +14,9 @@ import pre_process.Convention;
 import pre_process.Modeling;
 import process.Sentences;
 
-public class Model extends Sentences implements Modeling {
+public class Model extends ModelSentences implements Modeling {
 	
-	public int findIndex(List<String> list,String[] temp) {
-		int index = -1;
-		for(int i =0;i<list.size();i++) {
-			String s = list.get(i);
-			for(int j = 0; j<temp.length;j++) {
-				if(s.contains(temp[j])) return index =i;
-			}
-		}
-		return index;
-	}
-	
-	public String covertToString(List<String > st) {
-		String temp ="";
-		for(int i = 0;i <st.size();i++) {
-			String s = st.get(i);
-			temp = temp.concat(s)+" ";
-		}
-		return temp;
-		
-	}
-	
-	public List<String> modeList(String st) {
-		List<String> list = new ArrayList<String>();
-		String[] arr = st.split(" ");
-		for (String s:arr) {
-			list.add(s);
-		}
-		return list;
-	}
+
 
 	@Override
 	public String modelName(String st) {
@@ -66,6 +38,56 @@ public class Model extends Sentences implements Modeling {
 		return covertToString(list);
 	    
 	}
+
+	public String modelState(String st) {
+		List<String> list = modeList(st);
+		int index = findIndex(list,preState);
+		if(index >= 0) {
+			list.set(index, CHANGE);
+		}
+		return covertToString(list);
+	}
+	public String modelChangePrice( String st) {
+		List<String> list = modeList(st);
+		String [] CHANCE1 = {CHANGE};
+		int index = findIndex(list,CHANCE1);
+		int size = list.size();
+		int i ;
+		boolean test = false;
+		if(index >= 0 ) {
+			for(i =index;i<size;i++) {
+				String s = list.get(i);
+				if(s.contains("điểm")) {
+					test = true;
+					break;
+				}
+			}
+			if(test) {
+				list.set(i-1, CHANGEPRICE);
+			}
+		}
+		return covertToString(list);
+
+	}
+
+	public String modelChange(String st ) {
+		String[] s = {"%"};
+		List<String> list = modeList(st);
+		int index = findIndex(list,s);
+		if(index >= 0) {
+			list.set(index, STATE);
+		}
+		return covertToString(list);
+	}
+
+	public String modelPreCurrentPrice (String st ) {
+		List<String> list = modeList(st);
+		int index = findIndex(list,preCurrentPrice);
+		if(index >= 0) {
+			list.set(index, "preCurrentPrice");
+		}
+		return covertToString(list);
+	}
 	
 	@Override
 	public String modelDate(String st) {
@@ -84,6 +106,10 @@ public class Model extends Sentences implements Modeling {
 		st = this.modelName(st);
 		st = this.modelPrice(st);
 		st = this.modelDate(st);
+		st = this.modelState(st);
+		st = this.modelChange(st);
+		st = this.modelChangePrice(st);
+		st = this.modelPreCurrentPrice(st);
 		return st;
 		
 	
@@ -102,8 +128,3 @@ public class Model extends Sentences implements Modeling {
 //		}
 //	}
 }
-
-		
-	
-
-
