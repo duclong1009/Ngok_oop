@@ -29,7 +29,7 @@ public class ModelSentences extends Sentences {
 
     public List<String> modeList(String st) {
         List<String> list = new ArrayList<String>();
-        String[] arr = st.split("\\s+");
+        String[] arr = st.split("\\s+|\\)|\\(");
         for (String s:arr) {
             list.add(s);
         }

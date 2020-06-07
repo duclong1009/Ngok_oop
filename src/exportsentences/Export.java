@@ -1,22 +1,18 @@
 package exportsentences;
 
-import java.io.Reader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashMap.*;
 import java.util.List;
 import java.util.Set;
 
+import input.ReadCell;
 import modelsentences.ModelSentences;
-import pre_process.Export;
-import process.Sentences;
 
-public class Export2 extends ModelSentences {
+public class Export extends ModelSentences {
 
 //	@Override
-	// nhập vào 1 chuỗi s đã mô hình thay, thay các key có trong câu đã mô hình thành các giá trị của hm
+	// nhập vào 1 chuỗi s đã mô hình, thay các key có trong câu đã mô hình thành các giá trị của hm
 	public String replace(String st, HashMap<String, String> hm ) {
-		ReadCellExample rc = new ReadCellExample();
+		ReadCell rc = new ReadCell();
 		List<String > list = modeList(st);
 		int size = list.size();
 		Set<String> keySet = hm.keySet();

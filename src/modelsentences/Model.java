@@ -1,18 +1,8 @@
 package modelsentences;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
 
-import input.Information;
-
-import java.util.Iterator;
-
-import pre_process.Convention;
 import pre_process.Modeling;
-import process.Sentences;
 
 public class Model extends ModelSentences implements Modeling {
 	

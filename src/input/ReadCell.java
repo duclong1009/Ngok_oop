@@ -1,4 +1,4 @@
-package exportsentences;
+package input;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
 
+import exportsentences.Export;
 import modelsentences.Model;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.*;
@@ -15,14 +16,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import static pre_process.Convention.*;
 
-public class ReadCellExample {
+public class ReadCell {
     public String ReadCellData(String name, int vRow, int vColumn) {
         String value = null;          //variable for storing the cell value
         Workbook wb = null;           //initialize Workbook null
         try {
-//reading data from a file in the form of bytes  
+//reading data from a file in the form of bytes
             FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\du_lieu_btl.xlsx");
-//constructs an XSSFWorkbook object, by buffering the whole stream into the memory  
+//constructs an XSSFWorkbook object, by buffering the whole stream into the memory
             wb = new XSSFWorkbook(fis);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -35,9 +36,9 @@ public class ReadCellExample {
         value = cell.getStringCellValue();    //getting cell value
         return value;               //returns the cell value
     }
-//Tìm chỉ số với input là ngày và tên của sàn
+    //Tìm chỉ số với input là ngày và tên của sàn
     public int getRow(String name, String date) {
-        ReadCellExample rc = new ReadCellExample();
+        ReadCell rc = new ReadCell();
         int indexRow = 0;
         int i = 0;
         while (rc.ReadCellData(name, i, 0) != null) {
@@ -90,8 +91,8 @@ public class ReadCellExample {
 
     public static void main(String[] args) {
 // đọc dữ liệu
-        ReadCellExample rc = new ReadCellExample();   //object of the class
-        int indexRow = rc.getRow("VN-INDEX", "22/05/2020");
+        ReadCell rc = new ReadCell();   //object of the class
+        int indexRow = rc.getRow("VN-INDEX", "20/05/2020");
         HashMap<String, String> x = new HashMap<String, String>();
         rc.getData(x,"VN-INDEX", indexRow, 0);
         System.out.println(indexRow);
@@ -99,10 +100,10 @@ public class ReadCellExample {
         for (String key : keySet) {
             System.out.println(key + " - " + x.get(key));
         }
-        Export2 ex =new Export2();
+        Export ex =new Export();
         Model md = new Model();
         //mô hình câu
-        String test = " Chốt phiên giao dịch ngày 11/4, VN-Index giảm hơn 31 điểm (tương đương 2,59%) xuống còn 1.167 điểm.";
+        String test = " Chốt phiên giao dịch ngày 11/4, VN-Index giảm hơn 31 điểm (tương đương 2,59%) còn 1.167 điểm.";
         System.out.println(test);
         String t = md.model(test);
         System.out.println(t);
