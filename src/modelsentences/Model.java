@@ -20,10 +20,18 @@ public class Model extends ModelSentences implements Modeling {
 
 	@Override
 	public String modelPrice(String st) {
+		int i;
+		boolean key = false;
 		List<String> list =modeList(st);
 		int index = findIndex(list, preCurrentPrice);
-		if(index >= 0) {
-		list.set(index+1, CURRENTPRICE);
+		for(i = index; i<list.size();i++) {
+			if(list.get(i).contains("điểm")) {
+				key  = true;
+				break;
+			}
+		}
+		if(index >= 0 && key) {
+		list.set(i-1, CURRENTPRICE);
 		}
 		return covertToString(list);
 	    
