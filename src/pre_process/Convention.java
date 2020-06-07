@@ -13,9 +13,12 @@ public interface Convention {
 	public static final String CHANGE = "Change";
 	public static final String CHANGEPRICE = "ChangePrice";
 
-	public static final String TANG_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\Long.txt";
+	public static final String TANG_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\Tang.txt";
+	public static final String GIAM_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\Giam.txt";;
 	public static String[] setNameIndex = {"VN-INDEX","VN30-INDEX","HNX-INDEX","HNX30-INDEX","UPCOM-INDEX","VN-Index","Vn-Index"};
-	public static String[] preCurrentPrice = {"còn","mức","ở","đạt","lên"};
+	public static String[] preCurrentPrice = {"còn","mức","ở","đạt","lên","tại"};
 	public static String[] preState = {"giảm","hơn","mất","tăng"};
+//	public static String[] statusEnd {"Kết thúc phiên","Kết phiên","kết thúc phiên","kết phiên","chốt phiên","chốt"};
+
 
 }

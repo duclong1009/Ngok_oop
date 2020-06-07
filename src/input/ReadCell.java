@@ -52,13 +52,14 @@ public class ReadCell {
     }
 
     // Tạo HashMap lưu dữ liệu
-    public void getData(HashMap<String, String>hm,String name, int indexRow, int indexColumn) {
+    public void getData(HashMap<String, String>hm,String name, String date) {
         String ch;
         String valueChange;
         String valueState;
         String prePri;
 
         // mã hóa column 3
+        int indexRow = getRow(name,date);
         String st = ReadCellData(name,indexRow,2);
         String[] arr = st.split("\\)|\\(|%");
         double ar1 = Double.parseDouble(arr[0]);
@@ -89,28 +90,28 @@ public class ReadCell {
     }
 
 
-    public static void main(String[] args) {
-// đọc dữ liệu
-        ReadCell rc = new ReadCell();   //object of the class
-        int indexRow = rc.getRow("VN-INDEX", "20/05/2020");
-        HashMap<String, String> x = new HashMap<String, String>();
-        rc.getData(x,"VN-INDEX", indexRow, 0);
-        System.out.println(indexRow);
-        Set<String> keySet = x.keySet();
-        for (String key : keySet) {
-            System.out.println(key + " - " + x.get(key));
-        }
-        Export ex =new Export();
-        Model md = new Model();
-        //mô hình câu
-        String test = " Chốt phiên giao dịch ngày 11/4, VN-Index giảm hơn 31 điểm (tương đương 2,59%) còn 1.167 điểm.";
-        System.out.println(test);
-        String t = md.model(test);
-        System.out.println(t);
-        // thay thế
-        String m = ex.replace(t,x);
-        System.out.println(m);
-
-
-    }
+//    public static void main(String[] args) {
+//// đọc dữ liệu
+//        ReadCell rc = new ReadCell();   //object of the class
+//        int indexRow = rc.getRow("VN-INDEX", "20/05/2020");
+//        HashMap<String, String> x = new HashMap<String, String>();
+//        rc.getData(x,"VN-INDEX", indexRow, 0);
+//        System.out.println(indexRow);
+//        Set<String> keySet = x.keySet();
+//        for (String key : keySet) {
+//            System.out.println(key + " - " + x.get(key));
+//        }
+//        Export ex =new Export();
+//        Model md = new Model();
+//        //mô hình câu
+//        String test = " Chốt phiên giao dịch ngày 11/4, VN-Index giảm hơn 31 điểm (tương đương 2,59%) còn 1.167 điểm.";
+//        System.out.println(test);
+//        String t = md.model(test);
+//        System.out.println(t);
+//        // thay thế
+//        String m = ex.replace(t,x);
+//        System.out.println(m);
+//
+//
+//    }
 }

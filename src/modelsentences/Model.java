@@ -24,20 +24,21 @@ public class Model extends ModelSentences implements Modeling {
 		boolean key = false;
 		List<String> list =modeList(st);
 		int index = findIndex(list, preCurrentPrice);
-		for(i = index; i<list.size();i++) {
-			if(list.get(i).contains("điểm")) {
-				key  = true;
-				break;
+
+		if(index >= 0) {
+			for(i = index; i<list.size();i++) {
+				if(list.get(i).contains("điểm")) {
+					key  = true;
+					break;
+				}
 			}
-		}
-		if(index >= 0 && key) {
-		list.set(i-1, CURRENTPRICE);
+			if(key) list.set(i-1, CURRENTPRICE);
 		}
 		return covertToString(list);
 	    
 	}
 
-	public String modelState(String st) {
+	public String modelChange(String st) {
 		List<String> list = modeList(st);
 		int index = findIndex(list,preState);
 		if(index >= 0) {
@@ -47,20 +48,20 @@ public class Model extends ModelSentences implements Modeling {
 	}
 	public String modelChangePrice( String st) {
 		List<String> list = modeList(st);
-		String [] CHANCE1 = {CHANGE};
-		int index = findIndex(list,CHANCE1);
+//		String [] CHANCE1 = {CHANGE};
+		int index = findIndex(list,preState);
 		int size = list.size();
 		int i ;
-		boolean test = false;
+		boolean key = false;
 		if(index >= 0 ) {
 			for(i =index;i<size;i++) {
 				String s = list.get(i);
 				if(s.contains("điểm")) {
-					test = true;
+					key = true;
 					break;
 				}
 			}
-			if(test) {
+			if(key) {
 				list.set(i-1, CHANGEPRICE);
 			}
 		}
@@ -68,7 +69,7 @@ public class Model extends ModelSentences implements Modeling {
 
 	}
 
-	public String modelChange(String st ) {
+	public String modelState(String st ) {
 		String[] s = {"%"};
 		List<String> list = modeList(st);
 		int index = findIndex(list,s);
@@ -105,12 +106,18 @@ public class Model extends ModelSentences implements Modeling {
 		st = this.modelPrice(st);
 		st = this.modelDate(st);
 		st = this.modelState(st);
-		st = this.modelChange(st);
+//		st = this.modelChange(st);
 		st = this.modelChangePrice(st);
-		st = this.modelPreCurrentPrice(st);
+//		st = this.modelPreCurrentPrice(st);
 		return st;
 		
 	
+	}
+
+	public static void main(String[] args) {
+		Model md = new Model();
+		String s = "Vn-Index, vào thời điểm này, tăng 1,69 điểm, lên 509,13 điểm.";
+		System.out.println(md.model(s));
 	}
 
 //	@Override
