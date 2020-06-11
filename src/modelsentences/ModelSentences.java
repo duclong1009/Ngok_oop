@@ -6,6 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModelSentences extends Sentences {
+    public boolean isNumeric(String str) {
+            if (str.contains("0") || str.contains("1") || str.contains("2") || str.contains("3") || str.contains("4") || str.contains("5") || str.contains("6") || str.contains("7") || str.contains("8") || str.contains("9"))
+                return true;
+            else return false;
+        }
+
+     public boolean isContain(String[] list,String t ) {
+        int size = list.length;
+        boolean result = false;
+        for(int i = 0;i<size;i++) {
+            if(t.contains(list[i])) {
+                result = true;
+            }
+        }
+        return result;
+     }
+
     public int findIndex(List<String> list, String[] temp) {
         int index = -1;
         for(int i =0;i<list.size();i++) {
@@ -15,6 +32,25 @@ public class ModelSentences extends Sentences {
             }
         }
         return index;
+    }
+
+    public int[] findIndexArray(List<String> list, String[] temp) {
+        int[] a = new int[5];
+        for(int i = 0;i<5;i++) {
+            a[i] = -1;
+        }
+        int k =0;
+        int index = -1;
+        for(int i =0;i<list.size();i++) {
+            String s = list.get(i);
+            for(int j = 0; j<temp.length;j++) {
+                if(s.contains(temp[j])) {
+                    a[k] = i;
+                    k++;
+                }
+            }
+        }
+        return a;
     }
 
     public String covertToString(List<String > st) {

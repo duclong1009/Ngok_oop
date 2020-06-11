@@ -5,11 +5,9 @@ import modelsentences.Model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static pre_process.Convention.TANG_TXT;
 
 public class ReadFileTxt {
     //Đọc và chuyển file txt thành list các câu

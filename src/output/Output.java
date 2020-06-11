@@ -13,7 +13,7 @@ import static pre_process.Convention.GIAM_TXT;
 import static pre_process.Convention.TANG_TXT;
 
 public class Output {
-    public void export (String name, String date) {
+    public void run (String name, String date) {
         Export ex = new Export();
         ReadFileTxt rf = new ReadFileTxt();
         ReadCell rc = new ReadCell();
@@ -22,12 +22,14 @@ public class Output {
         String address = null;
         // phân loại là phiên giao dịch tăng hay giảm
         String change = cl.classifyChange(name,date);
+        System.out.println(change);
         if(change.equals("Tăng")) {
             address = TANG_TXT;
         }
         else if(change.equals("Giảm")) {
             address = GIAM_TXT;
         }
+        System.out.println(address);
         //Chọn ngẫu nhiên 1 câu trong file
         String sentences = rf.chooseSentences(rf.readLine(address));
         //mô hình câu
@@ -46,6 +48,6 @@ public class Output {
         System.out.println("Nhap ngay: ");
         String date = sr.nextLine();
         Output op = new Output();
-        op.export(name,date);
+        op.run(name,date);
     }
 }

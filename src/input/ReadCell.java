@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
 
-import exportsentences.Export;
-import modelsentences.Model;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -22,18 +19,18 @@ public class ReadCell {
         Workbook wb = null;           //initialize Workbook null
         try {
 //reading data from a file in the form of bytes
-            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\du_lieu_btl.xlsx");
+//            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\du_lieu_btl.xlsx");
+            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\HOSE.xlsx");
 //constructs an XSSFWorkbook object, by buffering the whole stream into the memory
             wb = new XSSFWorkbook(fis);
+            Sheet sheet = wb.getSheet(name);
+            DataFormatter formatter = new DataFormatter();
+            value = formatter.formatCellValue(sheet.getRow(vRow).getCell(vColumn));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        Sheet sheet = wb.getSheet(name);   //getting the XSSFSheet object at given index
-        Row row = sheet.getRow(vRow); //returns the logical row
-        Cell cell = row.getCell(vColumn); //getting the cell representing the given column
-        value = cell.getStringCellValue();    //getting cell value
         return value;               //returns the cell value
     }
     //Tìm chỉ số với input là ngày và tên của sàn
@@ -80,38 +77,24 @@ public class ReadCell {
         }
         // thêm dữ liệu vào kiểu HashMap
         hm.put("Name",name);
-        hm.put("Date",ReadCellData(name,indexRow,0));
+        hm.put("Date",date);
         hm.put(CURRENTPRICE,ReadCellData(name,indexRow,1));
-        hm.put("Change",ch);
         hm.put("ChangePrice",valueChange);
-        hm.put("preCurrentPrice",prePri);
         hm.put("State",valueState);
+        hm.put("matchingTradeWeight ",ReadCellData(name,indexRow,4));
+        hm.put("matchingTradeValue ",ReadCellData(name,indexRow,5));
+        hm.put("transactionWeight  ",ReadCellData(name,indexRow,6));
+        hm.put("transactionValue  ",ReadCellData(name,indexRow,7));
 
     }
 
 
-//    public static void main(String[] args) {
-//// đọc dữ liệu
-//        ReadCell rc = new ReadCell();   //object of the class
-//        int indexRow = rc.getRow("VN-INDEX", "20/05/2020");
-//        HashMap<String, String> x = new HashMap<String, String>();
-//        rc.getData(x,"VN-INDEX", indexRow, 0);
-//        System.out.println(indexRow);
-//        Set<String> keySet = x.keySet();
-//        for (String key : keySet) {
-//            System.out.println(key + " - " + x.get(key));
-//        }
-//        Export ex =new Export();
-//        Model md = new Model();
-//        //mô hình câu
-//        String test = " Chốt phiên giao dịch ngày 11/4, VN-Index giảm hơn 31 điểm (tương đương 2,59%) còn 1.167 điểm.";
-//        System.out.println(test);
-//        String t = md.model(test);
-//        System.out.println(t);
-//        // thay thế
-//        String m = ex.replace(t,x);
-//        System.out.println(m);
-//
-//
-//    }
-}
+  public static void main(String[] args) {
+      ReadCell rc = new ReadCell();
+      String s = rc.ReadCellData("Sheet1",2,1);
+      System.out.println(s);
+
+
+      }
+  }
+
