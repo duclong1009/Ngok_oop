@@ -93,9 +93,6 @@ public class Model extends ModelSentences implements Modeling {
 		return covertToString(list);
 	}
 
-
-	
-//	@Override
 	public String model(String st) {
         // TODO Auto-generated method stub
 		st = this.modelName(st);
@@ -115,16 +112,4 @@ public class Model extends ModelSentences implements Modeling {
 		}
 	}
 
-//	@Override
-//	public void add() {
-//		// TODO Auto-generated method stub
-//		try {
-//			List<String> list = Information.getList(new File("tang.txt"));
-//			for (String s:list) {
-//				addSentences(modeling(s));
-//			}
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
 }

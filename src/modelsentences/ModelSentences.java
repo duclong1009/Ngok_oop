@@ -6,6 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModelSentences extends Sentences {
+    public boolean isNumericb(String str) {
+        boolean key;
+        if(str.contains("một")||str.contains("hai")||str.contains("ba")||str.contains("bốn")||str.contains("tư")||str.contains("năm")||str.contains("sáu")||str.contains("bảy")||str.contains("tám")||str.contains("chín")) {
+            key = true;
+        }
+        else {
+            key = false;
+        }
+        return key;
+
+    }
+
     public boolean isNumeric(String str) {
             if (str.contains("0") || str.contains("1") || str.contains("2") || str.contains("3") || str.contains("4") || str.contains("5") || str.contains("6") || str.contains("7") || str.contains("8") || str.contains("9"))
                 return true;

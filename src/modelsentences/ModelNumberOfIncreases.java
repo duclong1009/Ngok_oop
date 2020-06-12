@@ -15,14 +15,11 @@ public class ModelNumberOfIncreases extends Model{
                 System.out.println(index[k]);
                 for(int j = index[k]+1 ; j <index[k]+3;j++) {
                     String s = list.get(j);
-                    System.out.println("1");
                     if(isContain(Giam,s)) {
                         list.set(index[k]-1,"TimesReduction");
-                        System.out.println("giam");
                     }
                     else if(isContain(Tang,s)) {
                         list.set(index[k]-1,"TimesIncreases");
-                        System.out.println("tang");
                     }
                     if(j+1 <list.size()) continue;
                     else break;

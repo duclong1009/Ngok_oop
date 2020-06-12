@@ -20,7 +20,7 @@ public class ReadCell {
         try {
 //reading data from a file in the form of bytes
 //            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\du_lieu_btl.xlsx");
-            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\HOSE.xlsx");
+            FileInputStream fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\du_lieu_btl.xlsx");
 //constructs an XSSFWorkbook object, by buffering the whole stream into the memory
             wb = new XSSFWorkbook(fis);
             Sheet sheet = wb.getSheet(name);

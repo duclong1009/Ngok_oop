@@ -4,17 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Model2 extends Model {
-    public boolean isNumericb(String str) {
-        boolean key;
-        if(str.contains("một")||str.contains("hai")||str.contains("ba")||str.contains("bốn")||str.contains("tư")||str.contains("năm")||str.contains("sáu")||str.contains("bảy")||str.contains("tám")||str.contains("chín")) {
-            key = true;
-        }
-        else {
-            key = false;
-        }
-        return key;
-
-    }
 
     public String modelTimes(String str) {
         List<String> list = modeList(str);
@@ -41,7 +30,6 @@ public class Model2 extends Model {
         String st = super.model(str);
         st = modelTimes(st);
         return st;
-
     }
 
     public static void main(String[] args) {

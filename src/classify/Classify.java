@@ -31,6 +31,6 @@ public class Classify {
 
     public static void main(String[] args) {
         Classify cl  = new Classify();
-        System.out.println(cl.classifyChange("VN-INDEX","22/05/2020"));
+        System.out.println(cl.classifyChange("VN-INDEX","21/05/2020"));
     }
 }
