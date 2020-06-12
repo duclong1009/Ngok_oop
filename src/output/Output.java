@@ -12,13 +12,16 @@ import java.util.Scanner;
 import static pre_process.Convention.GIAM_TXT;
 import static pre_process.Convention.TANG_TXT;
 
-public class Output{
+public class Output extends Outputt{
+    public  Output () {
+        super();
+    }
     public void run (String name, String date) {
-        Export ex = new Export();
-        ReadFileTxt rf = new ReadFileTxt();
-        ReadCell rc = new ReadCell();
-        Classify cl = new Classify();
+//        Export ex = new Export();
+//        ReadFileTxt rf = new ReadFileTxt();
+//        ReadCell rc = new ReadCell();
         Model md = new Model();
+        Classify cl = new Classify();
         String address = null;
         // phân loại là phiên giao dịch tăng hay giảm
         String change = cl.classifyChange(name,date);

@@ -1,25 +1,23 @@
 package output;
 
-import classify.Classify;
-import classify.ClassifyNumberofIncreases;
+import classify.Classify1;
 import exportsentences.Export;
 import input.ReadCell;
 import input.ReadFileTxt;
-import modelsentences.Model;
-import modelsentences.ModelNumberOfIncreases;
+import modelsentences.Model1;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
 import static pre_process.Convention.*;
 
-public class OutputNumberOfIncreases {
+public class Output1 extends  Outputt{
+    public Output1() {
+        super();
+    }
     public void run(String name, String date) {
-        Export ex = new Export();
-        ReadFileTxt rf = new ReadFileTxt();
-        ReadCell rc = new ReadCell();
-        ClassifyNumberofIncreases cl = new ClassifyNumberofIncreases();
-        ModelNumberOfIncreases md = new ModelNumberOfIncreases();
+        Classify1 cl = new Classify1();
+        Model1 md = new Model1();
         cl.classify(name,date);
         String address = SOLANTANGGIAM;
         // phân loại là phiên giao dịch tăng hay giảm
@@ -48,7 +46,7 @@ public class OutputNumberOfIncreases {
         String name = sr.nextLine();
         System.out.println("Nhap ngay: ");
         String date = sr.nextLine();
-        OutputNumberOfIncreases op = new OutputNumberOfIncreases();
+        Output1 op = new Output1();
         op.run(name, date);
     }
 }

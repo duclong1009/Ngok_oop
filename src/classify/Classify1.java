@@ -2,7 +2,7 @@ package classify;
 
 import input.ReadCell;
 
-public class ClassifyNumberofIncreases {
+public class Classify1 {
     public String timesIncreases;
     public String timesReduction;
     public void classify(String name, String  date)

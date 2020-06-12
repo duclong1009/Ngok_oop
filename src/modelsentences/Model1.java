@@ -3,7 +3,7 @@ package modelsentences;
 import java.util.List;
 import java.util.Scanner;
 
-public class ModelNumberOfIncreases extends Model{
+public class Model1 extends Model{
 
     public String modelTimesIncreases (String str) {
         List<String> list = modeList(str);
@@ -36,7 +36,7 @@ public class ModelNumberOfIncreases extends Model{
     }
 
     public static void main(String[] args) {
-        ModelNumberOfIncreases md = new ModelNumberOfIncreases();
+        Model1 md = new Model1();
         Scanner sr = new Scanner(System.in);
         while (true) {
             String s = sr.nextLine();

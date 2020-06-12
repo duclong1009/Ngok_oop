@@ -1,11 +1,6 @@
 package output;
 
-import classify.Classify;
 import classify.Classify2;
-import exportsentences.Export;
-import input.ReadCell;
-import input.ReadFileTxt;
-import modelsentences.Model;
 import modelsentences.Model2;
 
 import java.util.HashMap;
@@ -13,12 +8,12 @@ import java.util.Scanner;
 
 import static pre_process.Convention.*;
 
-public class Ouput2 {
+public class Output2 extends  Outputt{
+    public Output2() {
+        super();
+    }
     public void run (String name,String date) {
         int INDEX_BEGIN = 3;
-        Export ex = new Export();
-        ReadFileTxt rf = new ReadFileTxt();
-        ReadCell rc = new ReadCell();
         Classify2 cl = new Classify2();
         Model2 md = new Model2();
         String address = null;
@@ -59,7 +54,7 @@ public class Ouput2 {
         String name = sr.nextLine();
         System.out.println("Nhap ngay: ");
         String date = sr.nextLine();
-        Ouput2 op = new Ouput2();
+        Output2 op = new Output2();
         op.run(name,date);
     }
 
