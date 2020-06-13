@@ -17,14 +17,14 @@ public interface Convention {
 	public static final String CHANGEPRICE = "ChangePrice";
 
 
-	public static final String TANGLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\lientiep\\Tanglientiep.txt";
-	public static final String GIAMLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\lientiep\\Giamlientiep.txt";
-	public static final String TANGROIGIAMLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\lientiep\\GiamlientieprooiTang.txt";
-	public static final String GIAMROITANGLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\lientiep\\Tanglientieproigiam.txt";
-	public static final String SOLANTANGGIAM = "C:\\Users\\Admin\\Desktop\\New folder (2)\\solantang.txt";
-	public static final String TANG_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\Tang.txt";
-	public static final String GIAM_TXT = "C:\\Users\\Admin\\Desktop\\New folder (2)\\Giam.txt";
-	public static final String DATMOC_TXT  = "C:\\Users\\Admin\\Desktop\\New folder (2)\\DATMOC.txt";
+	public static final String TANGLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\filetxt\\Tanglientiep.txt";
+	public static final String GIAMLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\filetxt\\Giamlientiep.txt";
+	public static final String TANGROIGIAMLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\filetxt\\GiamlientieprooiTang.txt";
+	public static final String GIAMROITANGLIENTUC_TXT = "C:\\Users\\Admin\\Desktop\\filetxt\\Tanglientieproigiam.txt";
+	public static final String SOLANTANGGIAM = "C:\\Users\\Admin\\Desktop\\filetxt\\solantang.txt";
+	public static final String TANG_TXT = "C:\\Users\\Admin\\Desktop\\filetxt\\Tang.txt";
+	public static final String GIAM_TXT = "C:\\Users\\Admin\\Desktop\\filetxt\\Giam.txt";
+	public static final String DATMOC_TXT  = "C:\\Users\\Admin\\Desktop\\filetxt\\DATMOC.txt";
 
 	public static String[] Giam  = {"giảm", "xuống"};
 	public static String[] Tang  = {"tăng"};
