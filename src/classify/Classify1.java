@@ -1,15 +1,20 @@
 package classify;
 
-import input.ReadCell;
+import static pre_process.Convention.SOLANTANGGIAM;
 
-public class Classify1 {
+public class Classify1 extends ClassifyBasis {
     public String timesIncreases;
     public String timesReduction;
+
+    public Classify1 (){
+        super();
+    }
+
+    @Override
     public void classify(String name, String  date)
     {
         Integer times1 = new Integer(0);
         Integer times2 = new Integer(0);
-        ReadCell rc = new ReadCell();
         for(int index = 3; index <10; index++) {
             String st = rc.ReadCellData(name, index, 2);
             String[] arr = st.split("\\)|\\(|%");
@@ -23,6 +28,20 @@ public class Classify1 {
         }
         this.timesIncreases = times1.toString();
         this.timesReduction = times2.toString();
+        this.address = SOLANTANGGIAM;
     }
 
+    @Override
+    public void getData(String name,String date) {
+        super.getData(name,date);
+        this.hm.put("TimesIncreases", timesIncreases);
+        this.hm.put("TimesReduction", timesReduction);
+    }
+
+    @Override
+    public void run(String name,String date) {
+        super.run(name,date);
+    }
 }
+
+

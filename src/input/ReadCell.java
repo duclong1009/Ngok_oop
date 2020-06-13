@@ -54,7 +54,6 @@ public class ReadCell {
         String valueChange;
         String valueState;
         String prePri;
-
         // mã hóa column 3
         int indexRow = getRow(name,date);
         String st = ReadCellData(name,indexRow,2);
@@ -85,16 +84,18 @@ public class ReadCell {
         hm.put("matchingTradeValue ",ReadCellData(name,indexRow,5));
         hm.put("transactionWeight  ",ReadCellData(name,indexRow,6));
         hm.put("transactionValue  ",ReadCellData(name,indexRow,7));
-
     }
 
 
   public static void main(String[] args) {
       ReadCell rc = new ReadCell();
-      String s = rc.ReadCellData("Sheet1",2,1);
+      String s = rc.ReadCellData("VN-INDEX",4,1);
       System.out.println(s);
+      HashMap<String, String> hm = new HashMap<>();;
+      rc.getData(hm,"VN-INDEX","21/05/2020");
+      System.out.println(hm);
 
 
-      }
+    }
   }
 

@@ -2,35 +2,28 @@ package classify;
 
 import input.ReadCell;
 
-public class Classify {
+import static pre_process.Convention.GIAM_TXT;
+import static pre_process.Convention.TANG_TXT;
 
-    public String classifyChange (String name, String date) {
-        ReadCell rc = new ReadCell();
+public class Classify extends ClassifyBasis{
+    public Classify() {
+        super();
+    }
+
+    @Override
+    public void classify(String name, String date) {
         int indexRow = rc.getRow(name, date);
         String st = rc.ReadCellData(name,indexRow,2);
         String[] arr = st.split("\\)|\\(|%");
         double ar1 = Double.parseDouble(arr[0]);
-//        double ar2 = Double.parseDouble(arr[1]);
         if(ar1 > 0 ) {
-            return "Tăng";
+            address = TANG_TXT;
         }
-        else if(ar1 == 0) return  "Cân Bằng";
-        else return "Giảm";
+        else address = GIAM_TXT;
     }
 
-//    public boolean checkSenssion(String st, String[] arString ) {
-//        int size = arString.length;
-//        boolean check = false;
-//        for (int i = 0 ; i<size ; i++) {
-//            if(st.contains(arString[i])) {
-//                check = true;
-//            }
-//        }
-//        return check;
-//    }
-
-    public static void main(String[] args) {
-        Classify cl  = new Classify();
-        System.out.println(cl.classifyChange("VN-INDEX","21/05/2020"));
+    @Override
+    public void run(String name, String date) {
+        super.run(name,date);
     }
 }

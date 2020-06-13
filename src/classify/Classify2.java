@@ -3,24 +3,36 @@ package classify;
 import input.ReadCell;
 
 import static java.lang.Integer.parseInt;
+import static pre_process.Convention.*;
+import static pre_process.Convention.GIAMROITANGLIENTUC_TXT;
 
-public class Classify2 {
+public class Classify2 extends ClassifyBasis {
     public static final int INDEX_BEGIN = 3;
+    private Integer times;
+
+    public Classify2() {
+        super();
+        times = new Integer(0);
+    }
+
+    public int getTimes() {
+        return  this.times;
+    }
 
     public int TimesIncreasingConsecutive (String name,int indexBegin) {
-        int times = 0;
+        int time = 0;
         ReadCell rc = new ReadCell();
         for(int i =indexBegin; i<20 ; i++ ) {
             float a1 = Float.parseFloat(rc.ReadCellData(name,i,1));
             float a2 = Float.parseFloat(rc.ReadCellData(name, i+1,1));
             if(a1>a2) {
-                times++;
+                time++;
             }
             else{
                 break;
             }
         }
-        return times;
+        return time;
     }
 
     public int TimeReductionConsecutive(String name, int indexBegin ) {
@@ -39,7 +51,6 @@ public class Classify2 {
         return times;
     }
 
-
     public int TimeReductionCon(String name , int indexBegin) {
         int times = 0;
         ReadCell rc = new ReadCell();
@@ -52,9 +63,7 @@ public class Classify2 {
             times = -1;
         }
         return times;
-
     }
-
 
     public int TimeIncreaseCon(String name , int indexBegin) {
         int times = 0;
@@ -68,22 +77,36 @@ public class Classify2 {
             times = -1;
         }
         return times;
-
     }
 
-
-    public static void main(String[] args) {
-        Classify2 cl = new Classify2();
-        System.out.println("So lần tăng liên tiếp:");
-        System.out.println(cl.TimesIncreasingConsecutive("VN-INDEX",INDEX_BEGIN));
-        System.out.println("So lần giảm liên tiếp:");
-        System.out.println(cl.TimesIncreasingConsecutive("VN-INDEX",INDEX_BEGIN));
-        System.out.println("So lần tăng liên tiếp sau 1 lần giảm:");
-        System.out.println(cl.TimeIncreaseCon("VN-INDEX",INDEX_BEGIN));
-        System.out.println("So lần giảm  liên tiếp sau 1 lần tăng:");
-        System.out.println(cl.TimeReductionCon("VN-INDEX",INDEX_BEGIN));
+    @Override
+    public void classify (String name, String date) {
+        if(TimesIncreasingConsecutive(name,INDEX_BEGIN)>0) {
+            this.times = TimesIncreasingConsecutive(name,INDEX_BEGIN);
+            address = TANGLIENTUC_TXT;
+        }
+        else if(TimeReductionConsecutive(name,INDEX_BEGIN)>0) {
+            this.times =TimeReductionConsecutive(name,INDEX_BEGIN);
+            address = GIAMLIENTUC_TXT;
+        }
+        else if(TimeReductionCon(name,INDEX_BEGIN)>0) {
+            times =TimeReductionCon(name,INDEX_BEGIN);
+            this.address = TANGROIGIAMLIENTUC_TXT;
+        }
+        else if(TimeIncreaseCon(name,INDEX_BEGIN)>0) {
+            this.times =TimeIncreaseCon(name,INDEX_BEGIN);
+            address = GIAMROITANGLIENTUC_TXT;
+        }
     }
 
+    @Override
+    public void getData(String name, String date) {
+        rc.getData(hm,name,date);
+        hm.put("TIMES",times.toString());
+    }
 
-
+    @Override
+    public void run(String name,String date) {
+        super.run(name,date);
+    }
 }

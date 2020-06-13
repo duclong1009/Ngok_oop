@@ -8,13 +8,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static pre_process.Convention.SOLANTANGGIAM;
+
 
 public class ReadFileTxt {
     //Đọc và chuyển file txt thành list các câu
     public ArrayList<String> readLine(String address) {
         BufferedReader br = null;
-        String sentencesModeled = null;
-        Model md = new Model();
+//        Model md = new Model();
         ArrayList<String> listSentences = new ArrayList<String>();
 
         try {
@@ -45,11 +46,11 @@ public class ReadFileTxt {
         return sentence;
     }
 
-//    public static void main(String[] args) {
-//        ReadFileTxt rf = new ReadFileTxt();
-//        String t = rf.chooseSentences(rf.readLine());
-//        System.out.println(t);
-//    }
+    public static void main(String[] args) {
+        ReadFileTxt rf = new ReadFileTxt();
+        String t = rf.chooseSentences(rf.readLine(SOLANTANGGIAM));
+        System.out.println(t);
+    }
 
 
 }
