@@ -11,7 +11,7 @@ public class Model extends ModelSentences implements Modeling {
 
 	@Override
 	public String modelName(String st) {
-		List<String> list = modeList(st);
+		List<String> list = covertToList(st);
 		int index = findIndex(list,setNameIndex);
 		if(index >= 0 ) {
 		list.set(index, "Name");
@@ -21,10 +21,9 @@ public class Model extends ModelSentences implements Modeling {
 
 	@Override
 	public String modelPrice(String st) {
-		int i;
 		boolean key1 = false;
 		boolean key2 = false;
-		List<String> list = modeList(st);
+		List<String> list = covertToList(st);
 		int[] index = new int[5];
 		index = findIndexArray(list, DIEM);
 		for (int k = 0; k < 5; k++) {
@@ -46,7 +45,7 @@ public class Model extends ModelSentences implements Modeling {
 	}
 
 	public String modelChangePrice( String st) {
-		List<String> list = modeList(st);
+		List<String> list = covertToList(st);
 		int [] index = new int[5];
 		index = findIndexArray(list,DIEM);
 		int size = list.size();
@@ -73,7 +72,7 @@ public class Model extends ModelSentences implements Modeling {
 
 	public String modelState(String st ) {
 		String[] s = {"%"};
-		List<String> list = modeList(st);
+		List<String> list = covertToList(st);
 		int index = findIndex(list,s);
 		if(index >= 0) {
 			list.set(index, STATE);
@@ -85,10 +84,34 @@ public class Model extends ModelSentences implements Modeling {
 	@Override
 	public String modelDate(String st) {
 		String[] s = {"/"};
-		List<String> list = modeList(st);
+		List<String> list = covertToList(st);
 		int index = findIndex(list,s);
 		if(index >= 0) {
 		list.set(index,"Date");
+		}
+		return covertToString(list);
+	}
+
+	public String modelTransactionValue(String str) {
+		List<String > list = covertToList(str);
+		int index = findIndex(list,TY);
+		if(index>=0 ) {
+			if(isNumeric(list.get(index-1))) {
+				list.set(index-1,"transactionValue");
+				list.set(index,"");
+			}
+		}
+		return covertToString(list);
+	}
+
+	public String modelTransactionWeight(String str) {
+		List<String > list = covertToList(str);
+		int index = findIndex(list,TRIEU);
+		if(index>=0) {
+			if(isNumeric(list.get(index-1))) {
+				list.set(index-1,"transactionWeight");
+				list.set(index,"");
+			}
 		}
 		return covertToString(list);
 	}
@@ -100,16 +123,17 @@ public class Model extends ModelSentences implements Modeling {
 		st = this.modelDate(st);
 		st = this.modelState(st);
 		st = this.modelChangePrice(st);
+		st = this.modelTransactionValue(st);
+		st = this.modelTransactionWeight(st);
 		return st;
 	}
 
 	public static void main(String[] args) {
 		Model md = new Model();
 		Scanner sr = new Scanner(System.in);
-		while (true) {
+		while(true) {
 			String s = sr.nextLine();
 			System.out.println(md.model(s));
 		}
 	}
-
 }

@@ -3,10 +3,10 @@ package modelsentences;
 import java.util.List;
 import java.util.Scanner;
 
-public class Model1 extends Model{
+public class ModelTimesChange extends Model{
 
     public String modelTimesIncreases (String str) {
-        List<String> list = modeList(str);
+        List<String> list = covertToList(str);
         int[] index = new int[5];
         index = findIndexArray(list,PHIEN);
 //        System.out.println(index);
@@ -33,15 +33,4 @@ public class Model1 extends Model{
         st = modelTimesIncreases(st);
         return st;
     }
-
-    public static void main(String[] args) {
-        Model1 md = new Model1();
-        Scanner sr = new Scanner(System.in);
-        while (true) {
-            String s = sr.nextLine();
-            System.out.println(md.model(s));
-        }
-    }
-
-
 }

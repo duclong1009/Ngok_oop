@@ -80,22 +80,10 @@ public class ReadCell {
         hm.put(CURRENTPRICE,ReadCellData(name,indexRow,1));
         hm.put("ChangePrice",valueChange);
         hm.put("State",valueState);
-        hm.put("matchingTradeWeight ",ReadCellData(name,indexRow,4));
-        hm.put("matchingTradeValue ",ReadCellData(name,indexRow,5));
-        hm.put("transactionWeight  ",ReadCellData(name,indexRow,6));
-        hm.put("transactionValue  ",ReadCellData(name,indexRow,7));
-    }
-
-
-  public static void main(String[] args) {
-      ReadCell rc = new ReadCell();
-      String s = rc.ReadCellData("VN-INDEX",4,1);
-      System.out.println(s);
-      HashMap<String, String> hm = new HashMap<>();;
-      rc.getData(hm,"VN-INDEX","21/05/2020");
-      System.out.println(hm);
-
-
+        hm.put("matchingTradeWeight",ReadCellData(name,indexRow,4));
+        hm.put("matchingTradeValue",ReadCellData(name,indexRow,5));
+        hm.put("transactionWeight",ReadCellData(name,indexRow,6));
+        hm.put("transactionValue",ReadCellData(name,indexRow,7));
     }
   }
 

@@ -4,7 +4,9 @@ import org.w3c.dom.stylesheets.LinkStyle;
 
 public interface Convention {
 	public static final String[] DIEM = {"điểm"};
+	public static final String[] TY = {"tỷ"};
 	public static final String[] PHIEN = {"phiên"};
+	public static final String[] TRIEU = {"triệu"};
 	public static final String NAME_INDEX = "NameIndex";
 	public static final String STATE = "State";
 	public static final String CURRENTPRICE = "CurrentPrice";
@@ -32,7 +34,4 @@ public interface Convention {
 	public static String[] preCurrentPrice = {"còn","ở","đạt","lên","tại","về","xuống"};
 	public static String[] preState = {"giảm","mất","tăng","rơi","tích","hồi"};
 	public static String[] nearPrice = {"sát","gần"};
-//	public static String[] statusEnd {"Kết thúc phiên","Kết phiên","kết thúc phiên","kết phiên","chốt phiên","chốt"};
-
-
 }

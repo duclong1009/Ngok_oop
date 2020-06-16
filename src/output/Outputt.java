@@ -5,7 +5,7 @@ import input.ReadCell;
 import input.ReadFileTxt;
 import modelsentences.Model;
 
-public class  Outputt {
+public abstract class  Outputt {
     public Export ex;
     public ReadFileTxt rf;
     public ReadCell rc ;
@@ -15,5 +15,7 @@ public class  Outputt {
         this.rc = new ReadCell();
         this.rf = new ReadFileTxt();
     }
+
+    public abstract void run(String name, String date);
 
 }

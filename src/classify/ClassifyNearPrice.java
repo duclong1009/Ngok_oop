@@ -2,10 +2,10 @@ package classify;
 
 import static pre_process.Convention.DATMOC_TXT;
 
-public class Classify3 extends ClassifyBasis {
+public class ClassifyNearPrice extends ClassifyBasis {
     public Integer nearPrice;
 
-    public  Classify3() {
+    public ClassifyNearPrice() {
         super();
         nearPrice = new Integer(0);
     }

@@ -2,19 +2,19 @@ package classify;
 
 import static pre_process.Convention.SOLANTANGGIAM;
 
-public class Classify1 extends ClassifyBasis {
+public class ClassifyTimesChange extends ClassifyBasis {
     public String timesIncreases;
     public String timesReduction;
 
-    public Classify1 (){
+    public ClassifyTimesChange(){
         super();
     }
 
     @Override
     public void classify(String name, String  date)
     {
-        Integer times1 = new Integer(0);
-        Integer times2 = new Integer(0);
+        Integer times1 = 0;
+        Integer times2 = 0;
         for(int index = 3; index <10; index++) {
             String st = rc.ReadCellData(name, index, 2);
             String[] arr = st.split("\\)|\\(|%");

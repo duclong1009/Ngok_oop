@@ -1,27 +1,21 @@
 package output;
 
-import classify.Classify1;
-import classify.Classify2;
-import classify.Classify3;
-import exportsentences.Export;
-import input.ReadCell;
-import input.ReadFileTxt;
+import classify.ClassifyNearPrice;
 import modelsentences.Model1;
-import modelsentences.Model2;
-import modelsentences.Model3;
+import modelsentences.ModelNearPrice;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
-import static pre_process.Convention.*;
+public class OutputNearPrice extends  Outputt{
 
-public class Output3 extends  Outputt{
-    public Output3() {
+    public OutputNearPrice()  {
         super();
     }
+
+    @Override
     public void run(String name, String date) {
-        Classify3 cl = new Classify3();
-        Model3 md = new Model3();
+        ClassifyNearPrice cl = new ClassifyNearPrice();
+        ModelNearPrice md = new ModelNearPrice();
         cl.run(name,date);
         if(cl.nearPrice>0) {
             HashMap<String, String> hm = cl.getHashMap();
@@ -31,10 +25,16 @@ public class Output3 extends  Outputt{
             System.out.println(ex.replace(modelSentences, hm));
         }
     }
-
     public static void main(String[] args) {
-        Output3 op = new Output3();
-        op.run("VN-INDEX", "21/05/2020");
+        OutputNearPrice op = new OutputNearPrice();
+        while (true) {
+            try {
+                op.run("VN-INDEX", "21/05/2020");
+            } catch (Exception e) {
+                continue;
+            }
+
+        }
     }
 }
 

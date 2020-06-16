@@ -1,19 +1,21 @@
 package output;
 
-import classify.Classify;
-import modelsentences.Model;
+import classify.ClassifyTimesChange;
+import modelsentences.ModelTimesChange;
+
 import java.util.HashMap;
 
-public class Output extends  Outputt {
-    public Output() {
+public class OutputTimesChange extends  Outputt{
+
+    public OutputTimesChange() {
         super();
     }
 
     @Override
     public void run(String name, String date) {
-        Classify cl = new Classify();
-        Model md = new Model();
-        cl.run(name, date);
+        ClassifyTimesChange cl = new ClassifyTimesChange();
+        ModelTimesChange md = new ModelTimesChange();
+        cl.run(name,date);
         HashMap<String, String> hm = cl.getHashMap();
         String address = cl.getAddress();
         String sentences = rf.chooseSentences(rf.readLine(address));
@@ -22,7 +24,7 @@ public class Output extends  Outputt {
     }
 
     public static void main(String[] args) {
-        Output op = new Output();
+        OutputTimesChange op = new OutputTimesChange();
         while (true) {
             try {
                 op.run("VN-INDEX", "21/05/2020");

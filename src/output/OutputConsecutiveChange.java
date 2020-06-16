@@ -1,19 +1,21 @@
 package output;
 
-import classify.Classify;
-import modelsentences.Model;
+import classify.ClassifyConsecutiveChange;
+import modelsentences.ModelConsecutiveChange;
+
 import java.util.HashMap;
 
-public class Output extends  Outputt {
-    public Output() {
+public class OutputConsecutiveChange extends  Outputt{
+
+    public OutputConsecutiveChange() {
         super();
     }
 
     @Override
     public void run(String name, String date) {
-        Classify cl = new Classify();
-        Model md = new Model();
-        cl.run(name, date);
+        ClassifyConsecutiveChange cl = new ClassifyConsecutiveChange();
+        ModelConsecutiveChange md = new ModelConsecutiveChange();
+        cl.run(name,date);
         HashMap<String, String> hm = cl.getHashMap();
         String address = cl.getAddress();
         String sentences = rf.chooseSentences(rf.readLine(address));
@@ -22,7 +24,7 @@ public class Output extends  Outputt {
     }
 
     public static void main(String[] args) {
-        Output op = new Output();
+        OutputConsecutiveChange op = new OutputConsecutiveChange();
         while (true) {
             try {
                 op.run("VN-INDEX", "21/05/2020");

@@ -1,11 +1,9 @@
 package modelsentences;
 
-import process.Sentences;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModelSentences extends Sentences {
+public class ModelSentences {
     public boolean isNumericb(String str) {
         boolean key;
         if(str.contains("một")||str.contains("hai")||str.contains("ba")||str.contains("bốn")||str.contains("tư")||str.contains("năm")||str.contains("sáu")||str.contains("bảy")||str.contains("tám")||str.contains("chín")) {
@@ -52,7 +50,6 @@ public class ModelSentences extends Sentences {
             a[i] = -1;
         }
         int k =0;
-        int index = -1;
         for(int i =0;i<list.size();i++) {
             String s = list.get(i);
             for(int j = 0; j<temp.length;j++) {
@@ -72,10 +69,9 @@ public class ModelSentences extends Sentences {
             temp = temp.concat(s)+" ";
         }
         return temp;
-
     }
 
-    public List<String> modeList(String st) {
+    public List<String> covertToList(String st) {
         List<String> list = new ArrayList<String>();
         String[] arr = st.split("\\s+");
         for (String s:arr) {

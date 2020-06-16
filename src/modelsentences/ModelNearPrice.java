@@ -1,12 +1,11 @@
 package modelsentences;
 
 import java.util.List;
-import java.util.Scanner;
 
-public class Model3 extends Model {
+public class ModelNearPrice extends Model {
 
-    public String modelNearPrice(String str) {
-        List<String > list = modeList(str);
+    public String modelAsymtoticValue(String str) {
+        List<String > list = covertToList(str);
         int[] index = findIndexArray(list,DIEM);
         for(int j = 0;j <5;j++) {
             if(index[j]>=0) {
@@ -26,19 +25,8 @@ public class Model3 extends Model {
 
     public String model(String str) {
         String st  = super.model(str);
-        st  = modelNearPrice(st);
+        st  = modelAsymtoticValue(st);
         return st;
 
-    }
-
-
-
-    public static void main(String[] args) {
-        Model3 md =  new Model3();
-        Scanner sr = new Scanner(System.in);
-        while(true) {
-            String s = sr.nextLine();
-            System.out.println(md.model(s));
-        }
     }
 }

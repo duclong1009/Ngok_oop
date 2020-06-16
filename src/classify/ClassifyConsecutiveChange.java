@@ -6,13 +6,13 @@ import static java.lang.Integer.parseInt;
 import static pre_process.Convention.*;
 import static pre_process.Convention.GIAMROITANGLIENTUC_TXT;
 
-public class Classify2 extends ClassifyBasis {
+public class ClassifyConsecutiveChange extends ClassifyBasis {
     public static final int INDEX_BEGIN = 3;
     private Integer times;
 
-    public Classify2() {
+    public ClassifyConsecutiveChange() {
         super();
-        times = new Integer(0);
+        times = 0;
     }
 
     public int getTimes() {
