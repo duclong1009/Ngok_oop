@@ -28,6 +28,8 @@ public class Model extends ModelSentences implements Modeling {
 		index = findIndexArray(list, DIEM);
 		for (int k = 0; k < 5; k++) {
 			if (index[k] >= 0) {
+				key1 = false;
+				key2 = false;
 				for (int j = index[k]; j >= index[k] - 3; j--) {
 					String str = list.get(index[k] - 1);
 					key2 = isNumeric(str);

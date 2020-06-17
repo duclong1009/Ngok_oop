@@ -10,11 +10,13 @@ public class ModelTimesChange extends Model{
         int[] index = new int[5];
         index = findIndexArray(list,PHIEN);
 //        System.out.println(index);
+
         for(int k = 0;k<5 ; k++) {
             if(index[k] >= 0) {
                 for(int j = index[k]+1 ; j <index[k]+3;j++) {
                     String s = list.get(j);
                     if(isContain(Giam,s)) {
+                        System.out.println("true");
                         list.set(index[k]-1,"TimesReduction");
                     }
                     else if(isContain(Tang,s)) {
@@ -32,5 +34,15 @@ public class ModelTimesChange extends Model{
         String st = super.model(str);
         st = modelTimesIncreases(st);
         return st;
+    }
+
+    public static void main(String[] args) {
+        Scanner sr = new Scanner(System.in);
+        ModelTimesChange md = new ModelTimesChange();
+        while (true) {
+            String s = sr.nextLine();
+            System.out.println(md.model(s));
+
+        }
     }
 }

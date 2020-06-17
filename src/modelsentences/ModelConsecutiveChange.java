@@ -26,9 +26,13 @@ public class ModelConsecutiveChange extends Model {
         return covertToString(list);
     }
 
-    public String model(String str) {
-        String st = super.model(str);
-        st = modelTimes(st);
-        return st;
+    public static void main(String[] args) {
+        Scanner sr = new Scanner(System.in);
+        ModelConsecutiveChange md = new ModelConsecutiveChange();
+        while (true) {
+            String s = sr.nextLine();
+            System.out.println(md.model(s));
+
+        }
     }
 }
