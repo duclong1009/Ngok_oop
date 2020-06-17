@@ -27,7 +27,7 @@ public class OutputTimesChange extends  Outputt{
         OutputTimesChange op = new OutputTimesChange();
         while (true) {
             try {
-                op.run("VN-INDEX", "21/05/2020");
+                op.run("VN-INDEX", "11/05/2020");
             } catch (Exception e) {
                 continue;
             }

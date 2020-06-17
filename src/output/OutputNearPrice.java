@@ -1,7 +1,6 @@
 package output;
 
 import classify.ClassifyNearPrice;
-import modelsentences.Model1;
 import modelsentences.ModelNearPrice;
 
 import java.util.HashMap;

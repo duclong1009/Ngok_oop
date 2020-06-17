@@ -15,7 +15,8 @@ public class ClassifyTimesChange extends ClassifyBasis {
     {
         Integer times1 = 0;
         Integer times2 = 0;
-        for(int index = 3; index <10; index++) {
+        int indexRow = rc.getRow(name, date);
+        for(int index = indexRow; index <indexRow+7; index++) {
             String st = rc.ReadCellData(name, index, 2);
             String[] arr = st.split("\\)|\\(|%");
             double ar1 = Double.parseDouble(arr[0]);
